@@ -41,17 +41,18 @@ public class ItineraryServiceImpl implements ItineraryService {
     
     public List<ActivitySectionModel> generateActivities(ActivityRequestDTO requestDTO) {
     	    logger.debug("Request: {}", requestDTO);
-            return createPlan(requestDTO.getPlanType(),requestDTO.getBudget(),requestDTO.getStartTime(),requestDTO.getEndTime(),requestDTO.getDate());
+            return createPlan(requestDTO.getPlanType(),requestDTO.getBudget(),requestDTO.getStartTime(),requestDTO.getEndTime(),requestDTO.getDate(), requestDTO.getCity());
     }
     public List<ActivitySectionModel> createPlan(
             String planType, 
             double budget, 
             String startHour, 
             String endHour,
-            String date
+            String date,
+            String city
         ) {
             // Fetch activities for the specific plan type
-            List<ActivityItemModel> fittingActivities = activityItemRepo.findByType(planType);
+            List<ActivityItemModel> fittingActivities = activityItemRepo.findByCityAndType(city,planType);
             long allActivities = activityItemRepo.count();
             logger.debug("Fitting Activities: {}, All Activities: {}", fittingActivities, allActivities);
             

@@ -17,17 +17,24 @@ public class ActivityRequestDTO {
 
     @JsonProperty(ActivityConstants.BUDGET)
     private Double budget;
+    
+    @JsonProperty(ActivityConstants.CITY)
+    private String city;
+    
+    
+    
 
     // Default constructor
     public ActivityRequestDTO() {}
 
     // Constructor with all fields
-    public ActivityRequestDTO(String planType, String date, String startTime, String endTime, Double budget) {
+    public ActivityRequestDTO(String planType, String date, String startTime, String endTime, Double budget, String city) {
         this.planType = planType;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.budget = budget;
+        this.city = city;
     }
 
     // Getters and setters
@@ -50,5 +57,13 @@ public class ActivityRequestDTO {
 	public String toString() {
 		return "ActivityRequestDTO [planType=" + planType + ", date=" + date + ", startTime=" + startTime + ", endTime="
 				+ endTime + ", budget=" + budget + "]";
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 }

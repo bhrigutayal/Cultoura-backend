@@ -23,6 +23,7 @@ public class ActivityItemModel {
     private double cost;
     private float rating;
     private String type;
+    private String city;
 
     @Column(name = "section_id")
     private Integer sectionId;
@@ -32,7 +33,7 @@ public class ActivityItemModel {
     public ActivityItemModel() {}
 
     public ActivityItemModel(Long id, String title, String description, String imageUrl, String startHour,String endHour,String date,
-                             double cost, float rating,String type, Integer sectionId, String location) {
+                             double cost, float rating,String type, Integer sectionId, String location, String  city) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -45,6 +46,7 @@ public class ActivityItemModel {
         this.type = type;
         this.sectionId = sectionId;
         this.location = location;
+        this.city = city;
     }
 
     // Getters and setters
@@ -110,5 +112,13 @@ public class ActivityItemModel {
 
 	public void setEndHour(String endHour) {
 		this.endHour = endHour;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
 	}
 }

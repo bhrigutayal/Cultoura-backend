@@ -9,5 +9,6 @@ import com.tourism.Cultoura.model.ActivityItemModel;
 
 @Repository
 public interface ActivityItemRepository extends JpaRepository<ActivityItemModel, Long> {
-	List<ActivityItemModel> findByType(String type);
+	List<ActivityItemModel> findByCityAndType(String city, String type);
+
 }
