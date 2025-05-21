@@ -7,6 +7,7 @@ import com.tourism.Cultoura.ResponseModels.BookingConfirmationResponse;
 import com.tourism.Cultoura.ResponseModels.ItineraryResponse;
 import com.tourism.Cultoura.ResponseModels.PaymentDetailsResponse;
 import com.tourism.Cultoura.DTO.ActivityRequestDTO;
+import com.tourism.Cultoura.DTO.ActivityResponseDTO;
 import com.tourism.Cultoura.model.ActivitySectionModel;
 import com.tourism.Cultoura.service.BookingService;
 import com.tourism.Cultoura.service.ItineraryService;
@@ -61,8 +62,9 @@ public class ItineraryController {
     
     @PreAuthorize("hasRole('USER')")
     @PostMapping("/activity-choices")
-    public List<ActivitySectionModel> generateActivities(@RequestBody ActivityRequestDTO requestDTO) {
-        return itineraryService.generateActivities(requestDTO);
+    public ActivityResponseDTO generateActivities(@RequestBody ActivityRequestDTO requestDTO) {
+        List<ActivitySectionModel> list = itineraryService.generateActivities(requestDTO);
+        return new ActivityResponseDTO(list);
     }
 
 

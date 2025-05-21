@@ -30,7 +30,7 @@ public class EventScraperScheduler {
     @Value("${scraper.pages:5}")
     private String pages;
 
-    @Scheduled(fixedRate = 6000)
+    @Scheduled(fixedRate = 21600000)
     public void runEventScraper() {
         logger.info("Starting scheduled event scraper at {}", formatter.format(LocalDateTime.now()));
         
